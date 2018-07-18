@@ -1,0 +1,26 @@
+class Star {
+  float x = random(width);
+  float y = random(-300, -80);
+  float z = random(0, 20); 
+  float length = map(z, 0, 50, 10, 40);
+  float yspeed = map(z, 0, 50, 1, 5);
+ 
+  void fall(){
+    y = y + yspeed;
+    float gravity = map(z, 0, 80, 0, 0.1);
+    yspeed = yspeed + gravity;
+   
+    if (y > height) {
+      y = random(-200, -100);
+    yspeed = map(z, 0, 50, 1, 5); 
+    }
+  }
+  
+  void show(){
+  float thick = map(z, 0, 50, 1, 0.5);
+  strokeWeight(thick);
+  stroke(255, 248, 145);
+  line(x,y,x,y + 10);
+    
+  }
+}
